@@ -6,10 +6,11 @@ function CoinDetail({params}) {
     useEffect(()=>{
         async function fetchdata(){
             const response=await( await fetch("https://api.coinlore.net/api/tickers/")).json();
-            setCoin(response.data[params.coinId]);
+            setCoin(response.data[params.coinId-1]);
         }
         fetchdata();
     },[params])
+    console.log(coin);
     return (
         <div className='coin-detail'>
             {coin &&<>

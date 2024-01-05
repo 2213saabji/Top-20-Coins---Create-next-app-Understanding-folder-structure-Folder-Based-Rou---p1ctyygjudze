@@ -7,10 +7,11 @@ function Home() {
     useEffect(()=>{
         async function fetchdata(){
             const response=await( await fetch("https://api.coinlore.net/api/tickers/")).json();
-            setCoins(response.data);
+            setCoins(response.data.slice(0,20));
         }
         fetchdata();
     },[])
+
     return (
         <div className='home'>
             <h1>Top 20 Cryptos</h1>
