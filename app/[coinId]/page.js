@@ -5,12 +5,11 @@ function CoinDetail({params}) {
     const [coin, setCoin] = useState(null);
     useEffect(()=>{
         async function fetchdata(){
-            const response=await( await fetch("https://api.coinlore.net/api/tickers/")).json();
-            setCoin(response.data[params.coinId-1]);
+            const response=await( await fetch(`https://api.coinlore.net/api/ticker/?id=${params.coinId}`)).json();
+            setCoin(response[0]);
         }
         fetchdata();
     },[params])
-    console.log(coin);
     return (
         <div className='coin-detail'>
             {coin &&<>
