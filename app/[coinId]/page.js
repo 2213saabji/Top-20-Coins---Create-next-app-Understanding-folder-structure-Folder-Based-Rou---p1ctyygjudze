@@ -10,6 +10,7 @@ function CoinDetail({params}) {
         }
         fetchdata();
     },[params])
+    console.log(params);
     return (
         <div className='coin-detail'>
             {coin &&<>
@@ -22,7 +23,7 @@ function CoinDetail({params}) {
                 <p className='coin-price'>Price: ${coin.price_usd}</p>
                 <p className='coin-market-cap'>Market Cap: ${coin.csupply}</p>
                 <p className='coin-total-supply'>Total Supply: {coin.tsupply}</p>
-                <p className='coin-max-supply'>Max Supply: {coin.msupply}</p>
+                <p className='coin-max-supply'>Max Supply: {coin.supply?coin.msupply:"N/A"}</p>
             </div>
             </>
 }
